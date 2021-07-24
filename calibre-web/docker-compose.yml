@@ -10,7 +10,7 @@
           - TZ=America/Chicago
         volumes:
           - /calibrew-config:/config
-          - /calibrew-library:/books
+          - C:\DockerMounts\calibre\Calibre:/books
         ports:
           - 8083:8083
         restart: unless-stopped

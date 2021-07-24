@@ -1,0 +1,17 @@
+---
+    version: "2.1"
+    services:
+      yacreaderlibrary-server-docker:
+        container_name: YACReaderLibraryServer
+        image: xthursdayx/yacreaderlibrary-server-docker
+        environment:
+          - PUID=1000
+          - PGID=1000
+          - TZ=America/Chicago
+        volumes:
+          - /yac-config:/config
+          - D:\GraphicNovels:/comics
+        ports:
+          - 8084:8080
+        restart: unless-stopped
+    

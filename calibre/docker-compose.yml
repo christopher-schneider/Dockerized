@@ -1,0 +1,17 @@
+---
+    version: "2.1"
+    services:
+      calibre:
+        image: ghcr.io/linuxserver/calibre
+        container_name: calibre
+        environment:
+          - PUID=1000
+          - PGID=1000
+          - TZ=America/Chicago
+        volumes:
+          - C:\DockerMounts\calibre\Calibre:/config
+        ports:
+          - 8080:8080
+          - 8081:8081
+        restart: unless-stopped
+    
