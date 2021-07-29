@@ -17,14 +17,14 @@ WORKDIR=$(mktemp -d)
 ZIP_FILE="${WORKDIR}/plutonium-foundry08.zip"
 
 
-log "MAIN_JS = ${MAIN_JS}"
-log "MODULE_BACKEND_JS = ${MODULE_BACKEND_JS}"
-log "MODULE_DIR = ${MODULE_DIR}"
-log "MODULE_URL = ${MODULE_URL}"
-log "MODULE_DOC_URL = ${MODULE_DOC_URL}"
-log "SUPPORTED_VERSIONS = ${SUPPORTED_VERSIONS}"
-log "WORKDIR = ${WORKDIR}"
-log "ZIP_FILE = ${ZIP_FILE}"
+# log "MAIN_JS = ${MAIN_JS}"
+# log "MODULE_BACKEND_JS = ${MODULE_BACKEND_JS}"
+# log "MODULE_DIR = ${MODULE_DIR}"
+# log "MODULE_URL = ${MODULE_URL}"
+# log "MODULE_DOC_URL = ${MODULE_DOC_URL}"
+# log "SUPPORTED_VERSIONS = ${SUPPORTED_VERSIONS}"
+# log "WORKDIR = ${WORKDIR}"
+# log "ZIP_FILE = ${ZIP_FILE}"
 
 log "Installing Plutonium module and backend."
 log "See: ${MODULE_DOC_URL}"
@@ -46,14 +46,7 @@ cp "${MODULE_BACKEND_JS}" "${FOUNDRY_HOME}/resources/app/"
 log "Patching main.mjs to use plutonium-backend."
 rm "${MAIN_JS}"
 curl -o "${FOUNDRY_HOME}/resources/app/main.mjs" "${PATCHED_MAIN_JS}"
-if [ -s plutonium_patchlog.txt ]; then
-  log "Plutonium backend patch was applied successfully."
-  log "Plutonium art and media tools will be enabled."
-else
-  log_error "Plutonium backend patch could not be applied."
-  log_error "main.js did not contain the expected source lines."
-  log_warn "Foundry Virtual Tabletop will still operate without the art and media tools enabled."
-  log_warn "Update this patch file to a version that supports Foundry Virtual Tabletop ${FOUNDRY_VERSION}."
-fi
+log "Plutonium backend patch was applied successfully."
+log "Plutonium art and media tools will be enabled."
 log "Cleaning up."
 rm -r ${WORKDIR}

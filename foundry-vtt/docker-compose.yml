@@ -10,11 +10,11 @@ services:
           target: /data
       environment:
         - CONTAINER_CACHE=/data/container_cache
-        - CONTAINER_PATCH_URLS=https://gist.githubusercontent.com/christopher-schneider/676dc4573ae344b98ee76fe5beea9e33/raw/plutonium.sh
+        - CONTAINER_PATCH_URLS=https://raw.githubusercontent.com/christopher-schneider/Dockerized/main/foundry-vtt/plutonium.sh
         - FOUNDRY_PASSWORD=t2Fzd29KuzEP
         - FOUNDRY_USERNAME=codekage
       ports:
         - target: 30000
-          published: 30000
+          published: 8090
           protocol: tcp
           mode: host
